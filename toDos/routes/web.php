@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/new', ['uses'=>'newController@new' ]);
+Route::get('/todos', 'todosController@index');
