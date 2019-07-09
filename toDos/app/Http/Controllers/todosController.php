@@ -55,6 +55,14 @@ class todosController extends Controller
 
     }
 
+    public function completed($id)
+    {
+        $todo=Todo::find($id);
+        $todo->completed=1;
+        $todo->save();
+        return redirect()->back();
+    }
+
     /**
      * Display the specified resource.
      *
