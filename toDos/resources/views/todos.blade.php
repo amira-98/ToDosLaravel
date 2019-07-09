@@ -11,14 +11,31 @@
 </div>
 </div>
 <br>
+<table class="table table-striped">
+
 @foreach($todos as $to)
-{{ $to->todo}} <a href="{{ route('todo.delete',['id' => $to->id] ) }} " class="btn btn-danger"> X </a>
+<tr>
+<td>
+
+{{ $to->todo}}
+</td>
+<td>
+ <a href="{{ route('todo.delete',['id' => $to->id] ) }} " class="btn btn-danger"> X </a>
+ </td>
+ <td>
 <a href="{{ route('todo.update',['id' => $to->id] ) }} " class="btn btn-success"> Modifier </a>
+<td>
 @if($to->completed==0)
+<td>
 <a  href="{{ route('todo.completed',['id' => $to->id] ) }}"class="btn btn-xs btn-info"> completed </a>
+<td>
 @else
+<td>
 <span class="text-success">Completed !</span>
+</td>
 @endif
 <hr>
+</tr>
 @endforeach
-@stop
+</table>
+@endsection
